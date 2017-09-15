@@ -67,6 +67,8 @@ for test_ts in win_s:
     Acc=[test_ts]
     Perp=[test_ts]
     for freq in DS_interval:
+        print("ws:"+str(test_ts,)+" interval:"+str(freq))
+
   
 # 
 # - The first ranges 1 - 5 and denotes the motility rate: number*0.001.
@@ -115,9 +117,7 @@ for test_ts in win_s:
                                 if j%freq == 0:
                                     new_X = np.append(new_X, [[sampling_X[j,0], sampling_X[j,1]]], axis=0)
                             i = i +1
-                        print(len(new_X))
-        #                index = np.argsort(new_X[:,0], axis=0)
-        #                new_X = new_X[index]
+                        #print(len(new_X))
                         plt.figure()       
                         plt.plot(X[:,0],X[:,1],label=plot_str)
                         plt.xlabel("Time")
@@ -145,7 +145,7 @@ for test_ts in win_s:
                                     new_X = np.append(new_X, [[sampling_X[j,0], sampling_X[j,1]]], axis=0)
                             i = i +1
                             
-                        print(len(new_X))
+                        #print(len(new_X))
         #                index = np.argsort(new_X[:,0], axis=0)
         #                new_X = new_X[index]
                         plt.plot(X[:,0],X[:,1],label=plot_str)
@@ -161,8 +161,7 @@ for test_ts in win_s:
         
                         x_all = np.concatenate( (x_all, x_t), axis = 0 )
                         y_all = np.concatenate( (y_all, y_t), axis = 0 )
-        
-                    # 
+                        
                     curr_class += 1          
         trainX,testX, trainY, testY = train_test_split(x_all, y_all, test_size=0.2, random_state=seed)
         
